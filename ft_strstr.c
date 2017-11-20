@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:23:45 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/18 12:29:56 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/18 16:01:31 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/18 16:25:08 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int n)
+char	*ft_strstr(const char *big, const char *little)
 {
-	unsigned int		i;
-	unsigned char		*ptr_dest;
-	const unsigned char	*ptr_src;
+	int		i;
+	int		j;
+	int		k;
+	char	*ptr;
 
-	ptr_dest = dest;
-	ptr_src = src;
+	ptr = (char*)big;
 	i = 0;
-	while (i < n)
+	j = 0;
+	k = 0;
+	while (ptr[i])
 	{
-		ptr_dest[i] = ptr_src[i];
+		j = 0;
+		k = i;
+		while (ptr[k] == little[j] && ptr[k] && little[j])
+		{
+			j++;
+			k++;
+		}
+		if (little[j] == '\0')
+			return (&ptr[i]);
 		i++;
 	}
-	return (dest);
+	return (0);
 }

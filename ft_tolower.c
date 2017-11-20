@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:23:45 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/18 12:29:56 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/17 19:19:23 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/17 19:21:59 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int n)
+int		ft_tolower(int c)
 {
-	unsigned int		i;
-	unsigned char		*ptr_dest;
-	const unsigned char	*ptr_src;
-
-	ptr_dest = dest;
-	ptr_src = src;
-	i = 0;
-	while (i < n)
-	{
-		ptr_dest[i] = ptr_src[i];
-		i++;
-	}
-	return (dest);
+	if (c > 64 && c < 91)
+		c += 32;
+	return (c);
 }

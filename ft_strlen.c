@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:23:45 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/18 12:29:56 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/15 18:42:32 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/15 18:43:08 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int n)
+unsigned long	ft_strlen(char *str)
 {
-	unsigned int		i;
-	unsigned char		*ptr_dest;
-	const unsigned char	*ptr_src;
+	unsigned long len;
 
-	ptr_dest = dest;
-	ptr_src = src;
-	i = 0;
-	while (i < n)
-	{
-		ptr_dest[i] = ptr_src[i];
-		i++;
-	}
-	return (dest);
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	return (len);
 }

@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:23:45 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/18 12:29:56 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/18 12:55:49 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/18 13:09:20 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int n)
+int		ft_strncmp(const char *s1, const char *s2, unsigned int len)
 {
-	unsigned int		i;
-	unsigned char		*ptr_dest;
-	const unsigned char	*ptr_src;
+	unsigned int i;
 
-	ptr_dest = dest;
-	ptr_src = src;
 	i = 0;
-	while (i < n)
-	{
-		ptr_dest[i] = ptr_src[i];
+	while (s1[i] && s2[i] && (i < len) && s1[i] == s2[i])
 		i++;
-	}
-	return (dest);
+	return (s1[i] - s2[i]);
 }

@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:23:45 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/18 12:29:56 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/18 13:20:06 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/18 15:03:58 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int n)
+void	*ft_memccpy(void *dst, const void *src, int c, unsigned int n)
 {
-	unsigned int		i;
+	int					i;
 	unsigned char		*ptr_dest;
-	const unsigned char	*ptr_src;
+	const unsigned char *ptr_src;
 
-	ptr_dest = dest;
-	ptr_src = src;
 	i = 0;
-	while (i < n)
+	ptr_dest = dst;
+	ptr_src = src;
+	if (n)
 	{
-		ptr_dest[i] = ptr_src[i];
-		i++;
+		while (i < n)
+		{
+			if ((*ptr_dest++ = ptr_src[i]) == c)
+				return (ptr_dest);
+			i++;
+		}
 	}
-	return (dest);
+	return (0);
 }

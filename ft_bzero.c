@@ -1,30 +1,26 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/18 12:24:38 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/18 12:27:50 by anboscan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 void	*ft_bzero(void *s, unsigned int n)
 {
-		unsigned int i;
-		unsigned char *ptr;
+	unsigned int	i;
+	unsigned char	*ptr;
 
-		ptr = s;
-		i = 0;
-		while (i < n)
-		{
-				ptr[i] = '\0';
-				i++;
-		}
-		return (s);
+	ptr = s;
+	i = 0;
+	while (i < n)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
+	return (s);
 }
-
-int	main(void)
-{
-		char str[100] = "academy+Moldova";
-		char str1[10] = "123456789";
-		char str2[7] = "7654321";
-
-		
-		ft_bzero(str1, 10);
-		printf("str = %s", str1);
-		return(0);
-}
-

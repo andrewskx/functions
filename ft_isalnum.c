@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:23:45 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/18 12:29:56 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/17 18:36:59 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/17 18:47:43 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int n)
+int		ft_isalnum(int c)
 {
-	unsigned int		i;
-	unsigned char		*ptr_dest;
-	const unsigned char	*ptr_src;
-
-	ptr_dest = dest;
-	ptr_src = src;
-	i = 0;
-	while (i < n)
-	{
-		ptr_dest[i] = ptr_src[i];
-		i++;
-	}
-	return (dest);
+	return ((c > 47 && c < 58) || (c > 64 && c < 91) || (c > 96 && c < 123));
 }

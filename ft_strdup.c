@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:23:45 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/18 12:29:56 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/15 18:56:06 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/15 19:09:50 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int n)
-{
-	unsigned int		i;
-	unsigned char		*ptr_dest;
-	const unsigned char	*ptr_src;
+#include <stdlib.h>
 
-	ptr_dest = dest;
-	ptr_src = src;
-	i = 0;
-	while (i < n)
+char	*ft_strdup(const char *str)
+{
+	long len;
+	char *ptr;
+
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	ptr = (char*)malloc((len + 1) * sizeof(char));
+	ptr[len] = '\0';
+	len--;
+	while (len != -1)
 	{
-		ptr_dest[i] = ptr_src[i];
-		i++;
+		ptr[len] = str[len];
+		len--;
 	}
-	return (dest);
+	return (ptr);
 }

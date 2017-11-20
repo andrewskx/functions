@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:23:45 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/18 12:29:56 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/18 15:41:30 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/18 15:54:29 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int n)
+int		ft_atoi(const char *str)
 {
-	unsigned int		i;
-	unsigned char		*ptr_dest;
-	const unsigned char	*ptr_src;
+	int res;
 
-	ptr_dest = dest;
-	ptr_src = src;
-	i = 0;
-	while (i < n)
+	res = 0;
+	while (*str == '\n' || *str == '\t' || *str == ' ')
+		str++;
+	if (*str < 48 || *str > 57)
+		return (0);
+	else
 	{
-		ptr_dest[i] = ptr_src[i];
-		i++;
+		while (*str > 47 && *str < 57)
+		{
+			res *= 10;
+			res += (int)*str - 48;
+			str++;
+		}
 	}
-	return (dest);
+	return (res);
 }
