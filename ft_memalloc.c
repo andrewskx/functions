@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:24:38 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/20 19:22:25 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/20 18:59:27 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/20 19:56:43 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-void	*ft_bzero(void *s, unsigned int n)
+#include <stdlib.h>
+#include <stdio.h>
+void *ft_bzero(void *s, unsigned int n);
+void	*ft_memalloc(unsigned int size)
 {
-	unsigned int	i;
-	unsigned char	*ptr;
+	void	*ptr;
 
-	ptr = s;
-	i = 0;
-	while (i < n)
-	{
-		ptr[i] = '\0';
-		i++;
-	}
-	return (s);
+	ptr = (void*)malloc(sizeof(void) * size);
+	if (ptr == 0)
+		return (0);
+	return (ft_bzero(ptr, size));
 }
+

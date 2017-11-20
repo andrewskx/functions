@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:24:38 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/20 19:22:25 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/17 19:10:56 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/17 19:23:09 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, unsigned int n)
+int		ft_toupper(int c)
 {
-	unsigned int	i;
-	unsigned char	*ptr;
-
-	ptr = s;
-	i = 0;
-	while (i < n)
-	{
-		ptr[i] = '\0';
-		i++;
-	}
-	return (s);
+	if (c > 96 && c < 123)
+		c -= 32;
+	return (c);
 }

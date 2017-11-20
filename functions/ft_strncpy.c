@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:24:38 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/20 19:22:25 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/17 17:27:12 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/17 17:42:46 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, unsigned int n)
+char	*ft_strncpy(char *dest, const char *src, unsigned int len)
 {
-	unsigned int	i;
-	unsigned char	*ptr;
+	int j;
 
-	ptr = s;
-	i = 0;
-	while (i < n)
+	j = 0;
+	while (j < len)
 	{
-		ptr[i] = '\0';
-		i++;
+		dest[j] = src[j];
+		j++;
 	}
-	return (s);
+	dest[len] = '\0';
+	return (dest);
 }

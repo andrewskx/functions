@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:24:38 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/20 19:22:25 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/18 12:55:49 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/18 13:09:20 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, unsigned int n)
+int		ft_strncmp(const char *s1, const char *s2, unsigned int len)
 {
-	unsigned int	i;
-	unsigned char	*ptr;
+	unsigned int i;
 
-	ptr = s;
 	i = 0;
-	while (i < n)
-	{
-		ptr[i] = '\0';
+	while (s1[i] && s2[i] && (i < len) && s1[i] == s2[i])
 		i++;
-	}
-	return (s);
+	return (s1[i] - s2[i]);
 }

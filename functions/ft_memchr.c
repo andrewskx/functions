@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:24:38 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/20 19:22:25 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/18 15:04:05 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/18 15:40:46 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, unsigned int n)
+void	*ft_memchr(const void *s, int c, unsigned int n)
 {
-	unsigned int	i;
+	int				i;
 	unsigned char	*ptr;
 
-	ptr = s;
+	ptr = (unsigned char*)s;
 	i = 0;
-	while (i < n)
-	{
-		ptr[i] = '\0';
-		i++;
-	}
-	return (s);
+	while (i++ < n)
+		if (*ptr++ == c)
+			return (--ptr);
+	return (0);
 }

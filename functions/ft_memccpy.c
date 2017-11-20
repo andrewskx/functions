@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:24:38 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/20 19:22:25 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/18 13:20:06 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/18 15:03:58 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, unsigned int n)
+void	*ft_memccpy(void *dst, const void *src, int c, unsigned int n)
 {
-	unsigned int	i;
-	unsigned char	*ptr;
+	int					i;
+	unsigned char		*ptr_dest;
+	const unsigned char *ptr_src;
 
-	ptr = s;
 	i = 0;
-	while (i < n)
+	ptr_dest = dst;
+	ptr_src = src;
+	if (n)
 	{
-		ptr[i] = '\0';
-		i++;
+		while (i < n)
+		{
+			if ((*ptr_dest++ = ptr_src[i]) == c)
+				return (ptr_dest);
+			i++;
+		}
 	}
-	return (s);
+	return (0);
 }

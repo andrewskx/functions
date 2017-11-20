@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:24:38 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/20 19:22:25 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/18 15:19:23 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/18 15:41:19 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, unsigned int n)
+int		ft_memcmp(const void *s1, const void *s2, unsigned int n)
 {
-	unsigned int	i;
-	unsigned char	*ptr;
+	int					i;
+	const unsigned char *ptr_s1;
+	const unsigned char *ptr_s2;
 
-	ptr = s;
 	i = 0;
-	while (i < n)
+	ptr_s1 = (const unsigned char*)s1;
+	ptr_s2 = (const unsigned char*)s2;
+	while (i++ < n)
 	{
-		ptr[i] = '\0';
-		i++;
+		if (*ptr_s1 != *ptr_s2)
+			break ;
+		ptr_s1++;
+		ptr_s2++;
 	}
-	return (s);
+	return (*ptr_s1 - *ptr_s2);
 }

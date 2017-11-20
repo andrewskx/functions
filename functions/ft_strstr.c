@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:24:38 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/20 19:22:25 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/18 16:01:31 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/18 16:25:08 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, unsigned int n)
+char	*ft_strstr(const char *big, const char *little)
 {
-	unsigned int	i;
-	unsigned char	*ptr;
+	int		i;
+	int		j;
+	int		k;
+	char	*ptr;
 
-	ptr = s;
+	ptr = (char*)big;
 	i = 0;
-	while (i < n)
+	j = 0;
+	k = 0;
+	while (ptr[i])
 	{
-		ptr[i] = '\0';
+		j = 0;
+		k = i;
+		while (ptr[k] == little[j] && ptr[k] && little[j])
+		{
+			j++;
+			k++;
+		}
+		if (little[j] == '\0')
+			return (&ptr[i]);
 		i++;
 	}
-	return (s);
+	return (0);
 }

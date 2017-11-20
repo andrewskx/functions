@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:24:38 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/20 19:22:25 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/18 15:41:30 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/18 15:54:29 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, unsigned int n)
+int		ft_atoi(const char *str)
 {
-	unsigned int	i;
-	unsigned char	*ptr;
+	int res;
 
-	ptr = s;
-	i = 0;
-	while (i < n)
+	res = 0;
+	while (*str == '\n' || *str == '\t' || *str == ' ')
+		str++;
+	if (*str < 48 || *str > 57)
+		return (0);
+	else
 	{
-		ptr[i] = '\0';
-		i++;
+		while (*str > 47 && *str < 57)
+		{
+			res *= 10;
+			res += (int)*str - 48;
+			str++;
+		}
 	}
-	return (s);
+	return (res);
 }

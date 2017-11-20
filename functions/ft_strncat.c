@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:24:38 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/20 19:22:25 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/17 17:50:30 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/17 18:28:19 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, unsigned int n)
+char	*ft_strncat(char *dest, const char *src, unsigned int len)
 {
-	unsigned int	i;
-	unsigned char	*ptr;
+	int i;
+	int j;
 
-	ptr = s;
 	i = 0;
-	while (i < n)
-	{
-		ptr[i] = '\0';
+	j = 0;
+	while (dest[i] != '\0')
 		i++;
+	while (j < len && src[j] != '\0')
+	{
+		dest[i + j] = src[j];
+		j++;
 	}
-	return (s);
+	return (dest);
 }

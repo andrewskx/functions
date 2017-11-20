@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:24:38 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/20 19:22:25 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/15 18:56:06 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/15 19:09:50 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, unsigned int n)
-{
-	unsigned int	i;
-	unsigned char	*ptr;
+#include <stdlib.h>
 
-	ptr = s;
-	i = 0;
-	while (i < n)
+char	*ft_strdup(const char *str)
+{
+	long len;
+	char *ptr;
+
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	ptr = (char*)malloc((len + 1) * sizeof(char));
+	ptr[len] = '\0';
+	len--;
+	while (len != -1)
 	{
-		ptr[i] = '\0';
-		i++;
+		ptr[len] = str[len];
+		len--;
 	}
-	return (s);
+	return (ptr);
 }

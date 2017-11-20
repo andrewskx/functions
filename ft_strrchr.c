@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 12:24:38 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/20 19:22:25 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/20 18:48:05 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/20 18:57:24 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, unsigned int n)
+char	*ft_strrchr(const char *str, int c)
 {
-	unsigned int	i;
-	unsigned char	*ptr;
+	char *ptr;
+	char *aux;
 
-	ptr = s;
-	i = 0;
-	while (i < n)
+	ptr = (char *)str;
+	aux = (char *)str;
+	while (*ptr)
+		ptr++;
+	while (ptr != aux)
 	{
-		ptr[i] = '\0';
-		i++;
+		if (*ptr-- == c)
+			return (++ptr);
 	}
-	return (s);
+	return (0);
 }
