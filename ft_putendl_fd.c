@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 20:01:57 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/21 17:49:12 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/22 14:35:16 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/22 14:36:25 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strnew(unsigned int size)
+void	ft_putendl_fd(char const *s, int fd)
 {
-	char *ptr;
-
-	ptr = (char *)malloc(sizeof(char) * (size + 1));
+	if (s)
+	{
+		while (*s)
+			write(fd, s++, 1);
+		write(fd, '\n', 1);
+	}
 }

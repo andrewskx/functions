@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 20:01:57 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/21 17:49:12 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/21 18:54:49 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/22 13:55:12 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strnew(unsigned int size)
+void	ft_putnbr(int nb)
 {
-	char *ptr;
+	int var;
+	int size;
 
-	ptr = (char *)malloc(sizeof(char) * (size + 1));
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	var = nb;
+	size = 1;
+	while ((nb / 10) > 0)
+	{
+		nb = nb / 10;
+		size = size * 10;
+	}
+	while (size != 0)
+	{
+		ft_putchar((char)((var / size) + 48));
+		var = var % size;
+		size = size / 10;
+	}
 }

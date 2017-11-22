@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 20:01:57 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/21 17:49:12 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/22 14:24:32 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/22 14:26:51 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strnew(unsigned int size)
+void	ft_putchar_fd(char c, int fd)
 {
-	char *ptr;
-
-	ptr = (char *)malloc(sizeof(char) * (size + 1));
+	write(fd, &c, 1);
 }

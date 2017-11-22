@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 20:01:57 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/21 17:49:12 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/21 17:50:01 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/21 17:51:39 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strnew(unsigned int size)
+void	ft_strdel(char **as)
 {
-	char *ptr;
-
-	ptr = (char *)malloc(sizeof(char) * (size + 1));
+	if (*as)
+		free(*as);
+	*as = 0;
 }

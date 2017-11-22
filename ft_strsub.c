@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 20:01:57 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/21 17:49:12 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/21 18:32:40 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/21 18:40:24 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strnew(unsigned int size)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	char *ptr;
 
-	ptr = (char *)malloc(sizeof(char) * (size + 1));
+	if (s != 0)
+	{
+		ptr = (char*)malloc(sizeof(char) * (len + 1));
+		if (ptr)
+		{
+			len += start;
+			while (s[start] && start != len)
+			{
+				*ptr = s[start];
+				ptr++;
+				start++;
+			}
+			*ptr = '\0';
+			return (ptr);
+		}
+	}
+	return (0);
 }

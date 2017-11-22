@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 20:01:57 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/21 17:49:12 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/21 18:09:30 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/21 18:14:11 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strnew(unsigned int size)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char *ptr;
+	unsigned int i;
+	char	*ptr;
 
-	ptr = (char *)malloc(sizeof(char) * (size + 1));
+	i = 0;
+	if (s != 0 && f != 0)
+	{
+		ptr = (char*)malloc((ft_strlen(char *)s) * sizeof(char));	
+		if (ptr)
+		{	
+			while (*s)
+			{
+				*ptr = f(i, *s);
+				i++;
+				s++;
+				ptr++;
+			}
+			return (ptr);
+		}
+	}
+	return (0);
 }

@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboscan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 20:01:57 by anboscan          #+#    #+#             */
-/*   Updated: 2017/11/21 17:49:12 by anboscan         ###   ########.fr       */
+/*   Created: 2017/11/21 18:01:24 by anboscan          #+#    #+#             */
+/*   Updated: 2017/11/21 18:15:02 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strnew(unsigned int size)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
 	char *ptr;
 
-	ptr = (char *)malloc(sizeof(char) * (size + 1));
+	if (s != 0 && f != 0)
+	{
+		ptr = (char*)malloc((ft_strlen((char *)s) + 1) * sizeof(char));
+		if (ptr)
+		{
+			while (*s)
+			{
+				*ptr = f(*s);
+				ptr++;
+				s++;
+			}
+			return (ptr);
+		}
+	}
+	return (0);
 }
