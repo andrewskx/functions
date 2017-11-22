@@ -9,9 +9,7 @@
 /*   Updated: 2017/11/22 15:42:40 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <stdlib.h>
-unsigned long	ft_strlen(char *str);
+
 char *ft_strtrim(char const *s)
 {
 	unsigned int start;

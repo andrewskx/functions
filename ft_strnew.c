@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strnew(unsigned int size)
+char	*ft_strnew(size_t size)
 {
 	char *ptr;
 

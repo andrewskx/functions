@@ -9,10 +9,8 @@
 /*   Updated: 2017/11/20 19:56:43 by anboscan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
-#include <stdio.h>
-void *ft_bzero(void *s, unsigned int n);
-void	*ft_memalloc(unsigned int size)
+
+void	*ft_memalloc(size_t size)
 {
 	void	*ptr;
 

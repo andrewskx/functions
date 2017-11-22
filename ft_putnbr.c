@@ -15,16 +15,16 @@ void	ft_putnbr(int nb)
 	int var;
 	int size;
 
-	if (nb < 0)
+	if (n < 0)
 	{
 		ft_putchar('-');
-		nb = -nb;
+		n = -n;
 	}
-	var = nb;
+	var = n;
 	size = 1;
-	while ((nb / 10) > 0)
+	while ((n / 10) > 0)
 	{
-		nb = nb / 10;
+		n = n / 10;
 		size = size * 10;
 	}
 	while (size != 0)
